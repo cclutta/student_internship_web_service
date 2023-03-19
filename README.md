@@ -28,6 +28,7 @@ This is a simple REST API that colleges can use to manage internships. Lecturers
 | POST | /api/v1/users/ | To add a new user account | ADMIN
 | GET | /api/v1/users/ | To get all users | ADMIN
 | GET | /api/v1/users/<user_id> | Get specific user with user_id | ADMIN
+| GET | /api/v1/users/token | Get token for authentication | USER
 
 ##### Sample
 
@@ -60,5 +61,61 @@ Connection: close
   ]
 }
 ```
+#### Lecturers
+| HTTP Verbs | Endpoints | Action | Role
+| --- | --- | --- | --- |
+| POST | /api/v1/lecturers/ | To add a new lecturer account | ADMIN
+| GET | /api/v1/lecturers/ | To get all lecturers | ADMIN
+| GET | /api/v1/lecturers/<lec_id> | Get specific lecturer with lec_id | ADMIN, LECTURER
+
+##### Sample
+` GET /lecturers
+
+     curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/lecturers
+     
+Response:
+```
+HTTP/1.1 200 OK
+Server: Werkzeug/2.2.3 Python/3.10.6
+Date: Sun, 19 Mar 2023 06:33:54 GMT
+Content-Type: application/json
+Content-Length: 1453
+Access-Control-Allow-Origin: *
+Connection: close
+
+[
+  {
+    "address": "here",
+    "department": "HOIE8",
+    "email": "mashabe@gmail.com",
+    "first_name": "Masha",
+    "gender": "F",
+    "id": 1,
+    "last_name": "Bear",
+    "lecturer_id": "HKOOE",
+    "phone": "93723202"
+  },
+  {
+    "address": "Hollywood Lane",
+    "department": "Music",
+    "email": "jbj@gmail.com",
+    "first_name": "Jon",
+    "gender": "M",
+    "id": 2,
+    "last_name": "Bon",
+    "lecturer_id": "M9023",
+    "phone": "732909223"
+  }
+]
+```
+
+
+
+
+
+
+
+
+
 
 
