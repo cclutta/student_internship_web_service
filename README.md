@@ -35,6 +35,7 @@ This is a simple REST API that colleges can use to manage internships. Lecturers
      curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/users/7
 
 Response:
+```
     HTTP/1.1 200 OK
     Server: Werkzeug/2.2.3 Python/3.10.6
     Date: Sun, 19 Mar 2023 06:22:25 GMT
@@ -57,6 +58,6 @@ Response:
     }
   ]
 }
-
+```
 
 
