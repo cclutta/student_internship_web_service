@@ -21,6 +21,8 @@ This is a simple REST API that colleges can use to manage internships. Lecturers
 `SI_MYSQL_USER='si_user' SI_MYSQL_PWD='si_user_pwd' SI_MYSQL_HOST='localhost' SI_MYSQL_DB='student_internship' ./app.py`
 
 ### API Endpoints
+
+#### Users
 | HTTP Verbs | Endpoints | Action | Role
 | --- | --- | --- | --- |
 | POST | /api/v1/users/ | To add a new user account | ADMIN
