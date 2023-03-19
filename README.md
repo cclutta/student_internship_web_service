@@ -32,25 +32,26 @@ This is a simple REST API that colleges can use to manage internships. Lecturers
 ##### Sample
 
 `GET /users/<user_id>`
-     curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/users/7
+
+    curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/users/7
 
 Response:
 ```
-    HTTP/1.1 200 OK
-    Server: Werkzeug/2.2.3 Python/3.10.6
-    Date: Sun, 19 Mar 2023 06:22:25 GMT
-    Content-Type: application/json
-    Content-Length: 214
-    Access-Control-Allow-Origin: *
-    Connection: close
+HTTP/1.1 200 OK
+Server: Werkzeug/2.2.3 Python/3.10.6
+Date: Sun, 19 Mar 2023 06:22:25 GMT
+Content-Type: application/json
+Content-Length: 214
+Access-Control-Allow-Origin: *
+Connection: close
 
 {
   "created_on": null,
-  "email": "jnkras@gmail.com",
+  "email": "name@gmail.com",
   "enabled": 0,
   "first_name": "John",
   "id": 7,
-  "last_name": "Krasinski",
+  "last_name": "Name",
   "phone": "756908765",
   "roles": [
     {
