@@ -27,7 +27,7 @@ def get_students():
 @auth.login_required
 def get_student(student_id):
     """ Retrieves user using specific ID. """
-    if not check_role("ADMIN"):
+    if not check_role("ADMIN") and not check_role("LECTURER"):
         return ({"Error": "Action Not Permitted"}) 
     
     student = storage.get(Student, student_id)

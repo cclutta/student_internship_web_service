@@ -102,6 +102,9 @@ def assign_internship():
     if not internship or not student:
         return ({"Error": "Either Student or Internship ID not found"})
     
+    if internship.assigned_student_id is not None:
+        return ({"Error": "Internship opportunity already assigned"})
+    
     internship.assigned_student_id = student_id
     storage.save()
     return jsonify({"Status": "Assignment successful"})

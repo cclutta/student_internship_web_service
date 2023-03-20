@@ -69,7 +69,7 @@ Connection: close
 | GET | /api/v1/lecturers/<lec_id> | Get specific lecturer with lec_id | ADMIN, LECTURER
 
 ##### Sample
-` GET /lecturers
+`GET /lecturers`
 
      curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/lecturers
      
@@ -108,7 +108,76 @@ Connection: close
   }
 ]
 ```
+#### Students
+| HTTP Verbs | Endpoints | Action | Role
+| --- | --- | --- | --- |
+| POST | /api/v1/students/ | To add a new student account | ADMIN
+| GET | /api/v1/students/ | To get all students | ADMIN, LECTURER
+| GET | /api/v1/students/<student_id> | Get specific student with student_id | ADMIN, LECTURER
+| POST | /api/v1/students/approve_payment | Approve payments for students to access internships | ADMIN
+| GET | /api/v1/students/approved | Get students who have paid for service | ADMIN, LECTURER
 
+##### Sample
+`GET /students/<student_id>`
+
+    curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/students/2
+
+Response:
+```
+HTTP/1.1 200 OK
+Server: Werkzeug/2.2.3 Python/3.10.6
+Date: Mon, 20 Mar 2023 14:58:38 GMT
+Content-Type: application/json
+Content-Length: 291
+Access-Control-Allow-Origin: *
+Connection: close
+
+{
+  "address": "here",
+  "course_code": "HOIE8",
+  "email": "harry@gmail.com",
+  "first_name": "Harry",
+  "gender": "M",
+  "id": 2,
+  "kin_name": "James Holden",
+  "kin_phone": "9732329428",
+  "last_name": "Mayor",
+  "payment_approved": 1,
+  "phone": "9372343202",
+  "student_id": "HKOOE"
+}
+```
+#### Internships
+| HTTP Verbs | Endpoints | Action | Role
+| --- | --- | --- | --- |
+| POST | /api/v1/internships/ | To add a new internship opportunity | LECTURER
+| GET | /api/v1/internships/ | To get all internship opportunities | ADMIN, LECTURER, STUDENT
+| GET | /api/v1/internships/<internship_id> | Get specific internship with internship_id | ADMIN, LECTURER, STUDENT
+| POST | /api/v1/internships/apply | Apply for specific opportunity | STUDENT
+| POST | /api/v1/internships/assign | Assign a student a specific opportunity | LECTURER
+| GET | /api/v1/internships/assigned | Get all assigned opportunities | ADMIN, LECTURER, STUDENT
+| GET | /api/v1/internships/added-by-me | Get all internships added by a specific lecturer | LECTURER
+
+##### Sample
+`GET /internships/assigned`
+
+    curl -i -u example@gmail.com:test123 0.0.0.0:5000/api/v1/internships/assign -H 'Content-Type: application/json' -d '{"internship_id":"1", "student_id":"1"}'
+
+Response:
+```
+HTTP/1.1 200 OK
+Server: Werkzeug/2.2.3 Python/3.10.6
+Date: Mon, 20 Mar 2023 15:12:31 GMT
+Content-Type: application/json
+Content-Length: 57
+Access-Control-Allow-Origin: *
+Connection: close
+
+{
+  "Status": "Assignment successful"
+}
+
+```
 
 
 
